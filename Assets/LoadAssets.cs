@@ -2,17 +2,27 @@ using UnityEngine;
 
 public class LoadAssets : MonoBehaviour
 {
-    public GameObject redObj;  // This is the public variable to hold reference to the RedPrefab
+    
+    public GameObject redObj;
 
-    // Start is called before the first frame update
+  
+    [SerializeField]
+    private GameObject blueObj;
+
     void Start()
     {
 
-    }
+        Application.targetFrameRate = 60;
 
-    // Update is called once per frame
-    void Update()
-    {
+        if (redObj != null)
+        {
+            Instantiate(redObj, new Vector3(2, 0, 0), Quaternion.identity);
+        }
 
+        
+        if (blueObj != null)
+        {
+            Instantiate(blueObj, new Vector3(-2, 0, 0), Quaternion.identity);
+        }
     }
 }
